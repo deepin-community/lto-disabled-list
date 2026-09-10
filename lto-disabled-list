@@ -1,0 +1,146 @@
+# lto-disabled-list for deepin/UOS.
+#
+# Source packages listed here are excluded from the default LTO build
+# (dpkg vendor build feature optimize/lto, enabled by default on
+# amd64 / arm64 / sw64 / loong64). Read by Dpkg::Vendor::Debian from
+# this fixed path: /usr/share/lto-disabled-list/lto-disabled-list.
+#
+# format: <source> any | <arch> [<arch> ...]
+#   any         exclude the source package on every architecture
+#   <arch> ...  exclude it only on the listed architectures
+#   lines starting with '#' are comments
+#
+# Entries are added for source packages confirmed to fail to build
+# or to miscompile with LTO. The initial entries below come from the
+# UOS archive LTO rebuild on x86_64 (Shuttle batch task, September
+# 2026): packages that ended APPLY_FAILED or UPLOAD_GIVEUP. They
+# failed on amd64 and are excluded on every architecture (any), so
+# that the arm64 / sw64 / loong64 rebuilds do not trip over them;
+# narrow an entry back to specific architectures once the package
+# is proven to build with LTO there.
+#
+# Cross-reference: 20 of these packages are also excluded by Ubuntu
+# lto-disabled-list v81; the rest are UOS-specific findings. Do not
+# blindly import further entries from the Ubuntu list, and do not
+# re-add qt6-* entries: deepin builds the Qt6 stack with LTO by
+# default (explicit optimize=+lto in deepin-community qt6-* packaging).
+
+# UOS archive LTO rebuild (x86_64), APPLY_FAILED: 21 entries.
+abseil any
+cpis any
+deepin-app-store any
+deepin-compatmode-rootfs-builder any
+deepin-immutable-ctl any
+deepin-iso-standard any
+deepin-license any
+deepin-recovery-gui any
+dlnfs any
+genudfimage any
+libime-v3-cpis any
+linux-upstream any
+permission-manager any
+python-cryptography any
+signverify-go any
+sogou-ime-ng any
+sogou-ime-ng-data any
+treeland any
+udcp-client-all any
+usec-ac-manager any
+usec-crypt-kit any
+
+# UOS archive LTO rebuild (x86_64), UPLOAD_GIVEUP: 95 entries.
+aalib any
+amd64-microcode any
+apt-file any
+audit any
+console-setup any
+curl any
+cwidget any
+cyrus-sasl2 any
+db5.3 any
+dde-cooperation any
+deepin-downloader any
+deepin-movie-reborn any
+dh-runit any
+dnsmasq any
+dpkg any
+dwayland any
+elfutils any
+enchant-2 any
+ffmpeg any
+flite any
+fuse any
+gettext any
+gnome-keyring any
+gnupg2 any
+gnustep-base any
+gnutls28 any
+gpgme1.0 any
+graphite2 any
+gstreamer1.0 any
+gtk+2.0 any
+gtk+3.0 any
+gtk4 any
+intel-gmmlib any
+intel-media-driver-non-free any
+kf6-kconfigwidgets any
+kf6-kimageformats any
+krb5 any
+libappimage any
+libayatana-indicator any
+libbs2b any
+libcdio any
+libimobiledevice any
+libmaxminddb any
+libplacebo any
+libplist any
+libpsl any
+libraw any
+librsvg any
+libsamplerate any
+libsigsegv any
+libsoup2.4 any
+libunwind any
+libvpx any
+libx86emu any
+libxrender any
+libxslt any
+libzen any
+mesa any
+mpeg2dec any
+onboard any
+onevpl any
+ostree any
+p11-kit any
+pango1.0 any
+protobuf any
+pulseaudio any
+pygobject any
+python-click any
+python3-defaults any
+qca2 any
+qt6-declarative any
+qt6-webengine any
+qtbase-opensource-src any
+qtdeclarative-opensource-src any
+qtlocation-opensource-src any
+qtmpris any
+qtquickcontrols2-opensource-src any
+qtspeech-opensource-src any
+qtsvg-opensource-src any
+qtwayland-opensource-src any
+qtwebchannel-opensource-src any
+qtwebengine-opensource-src any
+qtwebsockets-opensource-src any
+rust-rav1e any
+shim-signed any
+spandsp any
+sphinxbase any
+syslinux any
+systemd any
+tcp-wrappers any
+tinyxml2 any
+tpm2-abrmd any
+vim any
+vlc any
+volume-key any

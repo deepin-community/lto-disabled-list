@@ -1,15 +1,22 @@
-Source: template-repository
-Section: unknown
+Source: lto-disabled-list
+Section: devel
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: tunaichao <tunaichao@uniontech.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.5.1
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: lto-disabled-list
+Architecture: all
+Depends: ${misc:Depends}
+Description: list of packages not to build with LTO
+ A list of source packages not to build with link time
+ optimization (LTO). Consulted by the dpkg vendor build
+ features at build time; dpkg-dev depends on this package.
+ .
+ Initial entries: the 116 source packages that ended the UOS
+ archive LTO rebuild on x86_64 (September 2026) APPLY_FAILED or
+ UPLOAD_GIVEUP, excluded on all architectures so that the arm64 /
+ sw64 / loong64 rebuilds do not trip over them. Ubuntu
+ lto-disabled-list v81 is the reference baseline for future
+ entries, minus the qt6-* entries, as deepin already builds the
+ Qt6 stack with LTO.
